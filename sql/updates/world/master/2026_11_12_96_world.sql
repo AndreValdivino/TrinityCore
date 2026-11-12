@@ -154,3 +154,14 @@ INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `Ver
 DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26389);
 INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
 (26389, 'ptBR', 'Os orcs Rocha Negra certamente cairão, já que a principal tropa deles foi derrotada! Só resta uma coisa a fazer.', 0);
+
+-- "Vamos acabar com a invasão!": PROGRESSO em ptBR (IDs 26390)
+-- ATENCAO: traducao propria (sem versao oficial disponivel)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26390);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(26390, 'ptBR', 'Você encontrou Kurtok?', 0);
+
+-- "Vamos acabar com a invasão!": CONCLUSAO em ptBR (IDs 26390)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26390);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(26390, 'ptBR', 'Com a morte dele, estamos mais uma vez a salvo dos orcs. Vou enviar aldeões para tentar selar a passagem, para que nenhum orc consiga entrar de novo em nosso território.$B$BVocê tem a gratidão de Ventobravo e da Aliança, grande herói!', 0);
