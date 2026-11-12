@@ -50,3 +50,46 @@ INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `Ver
 (28774, 'ptBR', 'Mate os espiões!', 0),
 (29079, 'ptBR', 'Mate os espiões!', 0),
 (31140, 'ptBR', 'Mate os espiões!', 0);
+
+-- "Vila Norte precisa de você": CONCLUSAO em ptBR (IDs 28780,28784,28785,28786,28787,28788,28789,29080,31143)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (28780,28784,28785,28786,28787,28788,28789,29080,31143);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(28780, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0),
+(28784, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0),
+(28785, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0),
+(28786, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0),
+(28787, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0),
+(28788, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0),
+(28789, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0),
+(29080, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0),
+(31143, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0);
+
+
+-- "Assassinos de aluguel": CONCLUSAO em ptBR (IDs 28791,28792,28793,28794,28795,28796,28797,29081,31144)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (28791,28792,28793,28794,28795,28796,28797,29081,31144);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(28791, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0),
+(28792, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0),
+(28793, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0),
+(28794, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0),
+(28795, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0),
+(28796, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0),
+(28797, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0),
+(29081, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0),
+(31144, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0);
+
+
+-- "Assassinos de aluguel": PROGRESSO em ptBR (IDs 28791,28792,28793,28794,28795,28796,28797,29081,31144)
+-- ATENCAO: traducao propria (sem versao oficial disponivel)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (28791,28792,28793,28794,28795,28796,28797,29081,31144);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(28791, 'ptBR', 'Mate os goblins assassinos!', 0),
+(28792, 'ptBR', 'Mate os goblins assassinos!', 0),
+(28793, 'ptBR', 'Mate os goblins assassinos!', 0),
+(28794, 'ptBR', 'Mate os goblins assassinos!', 0),
+(28795, 'ptBR', 'Mate os goblins assassinos!', 0),
+(28796, 'ptBR', 'Mate os goblins assassinos!', 0),
+(28797, 'ptBR', 'Mate os goblins assassinos!', 0),
+(29081, 'ptBR', 'Mate os goblins assassinos!', 0),
+(31144, 'ptBR', 'Mate os goblins assassinos!', 0);
+
