@@ -93,3 +93,30 @@ INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `Ver
 (29081, 'ptBR', 'Mate os goblins assassinos!', 0),
 (31144, 'ptBR', 'Mate os goblins assassinos!', 0);
 
+
+-- "Livra-nos do mal": PROGRESSO em ptBR (IDs 28806,28808,28809,28810,28811,28812,28813,29082,63447)
+-- ATENCAO: traducao propria (sem versao oficial disponivel)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (28806,28808,28809,28810,28811,28812,28813,29082,63447);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(28806, 'ptBR', 'Salve os soldados!', 0),
+(28808, 'ptBR', 'Salve os soldados!', 0),
+(28809, 'ptBR', 'Salve os soldados!', 0),
+(28810, 'ptBR', 'Salve os soldados!', 0),
+(28811, 'ptBR', 'Salve os soldados!', 0),
+(28812, 'ptBR', 'Salve os soldados!', 0),
+(28813, 'ptBR', 'Salve os soldados!', 0),
+(29082, 'ptBR', 'Salve os soldados!', 0),
+(63447, 'ptBR', 'Salve os soldados!', 0);
+
+-- "Livra-nos do mal": CONCLUSAO em ptBR (IDs 28806,28808,28809,28810,28811,28812,28813,29082,63447)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (28806,28808,28809,28810,28811,28812,28813,29082,63447);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(28806, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
+(28808, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
+(28809, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
+(28810, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
+(28811, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
+(28812, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
+(28813, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
+(29082, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
+(63447, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0);
