@@ -120,3 +120,16 @@ INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `Verified
 (28813, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
 (29082, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
 (63447, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0);
+
+-- "A retaguarda está livre": CONCLUSAO em ptBR (IDs 28817,28818,28819,28820,28821,28822,28823,29083,31145)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (28817,28818,28819,28820,28821,28822,28823,29083,31145);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(28817, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
+(28818, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
+(28819, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
+(28820, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
+(28821, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
+(28822, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
+(28823, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
+(29083, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
+(31145, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0);
