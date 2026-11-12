@@ -133,3 +133,24 @@ INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `Verified
 (28823, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
 (29083, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
 (31145, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0);
+
+-- "A esperança é a última que queima": PROGRESSO em ptBR (IDs 26391)
+-- ATENCAO: traducao propria (sem versao oficial disponivel)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26391);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(26391, 'ptBR', 'Você apagou os incêndios?', 0);
+
+-- "A esperança é a última que queima": CONCLUSAO em ptBR (IDs 26391)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26391);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(26391, 'ptBR', 'Bendito seja, $n. Você é um verdadeiro herói da Aliança! Mesmo com terras completamente calcinadas, mesmo que não reste nada no vinhedo além de cinzas e escombros, mesmo assim eu vou conseguir me recuperar! Certo? Ah, não está tão ruim assim...', 0);
+
+-- "Invasão dos Rocha Negra": PROGRESSO em ptBR (IDs 26389)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26389);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(26389, 'ptBR', 'Conseguiu matar as hordas de orcs furiosos?', 0);
+
+-- "Invasão dos Rocha Negra": CONCLUSAO em ptBR (IDs 26389)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26389);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(26389, 'ptBR', 'Os orcs Rocha Negra certamente cairão, já que a principal tropa deles foi derrotada! Só resta uma coisa a fazer.', 0);
