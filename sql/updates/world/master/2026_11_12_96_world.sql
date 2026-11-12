@@ -1,0 +1,156 @@
+-- Quest "É hora de reagir" (9 versoes, uma por classe): texto de conclusao em ptBR
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (28757, 28762, 28763, 28764, 28765, 28766, 28767, 29078, 31139);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(28757, 'ptBR', 'Você nos fez ganhar tempo, $n, mas agora temos que tratar de problemas ainda maiores.', 0),
+(28762, 'ptBR', 'Você nos fez ganhar tempo, $n, mas agora temos que tratar de problemas ainda maiores.', 0),
+(28763, 'ptBR', 'Você nos fez ganhar tempo, $n, mas agora temos que tratar de problemas ainda maiores.', 0),
+(28764, 'ptBR', 'Você nos fez ganhar tempo, $n, mas agora temos que tratar de problemas ainda maiores.', 0),
+(28765, 'ptBR', 'Você nos fez ganhar tempo, $n, mas agora temos que tratar de problemas ainda maiores.', 0),
+(28766, 'ptBR', 'Você nos fez ganhar tempo, $n, mas agora temos que tratar de problemas ainda maiores.', 0),
+(28767, 'ptBR', 'Você nos fez ganhar tempo, $n, mas agora temos que tratar de problemas ainda maiores.', 0),
+(29078, 'ptBR', 'Você nos fez ganhar tempo, $n, mas agora temos que tratar de problemas ainda maiores.', 0),
+(31139, 'ptBR', 'Você nos fez ganhar tempo, $n, mas agora temos que tratar de problemas ainda maiores.', 0);
+
+-- Quest "É hora de reagir": texto de progresso em ptBR
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (28757, 28762, 28763, 28764, 28765, 28766, 28767, 29078, 31139);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(28757, 'ptBR', 'Conseguiu revidar o ataque dos worgs da Rocha Negra?', 0),
+(28762, 'ptBR', 'Conseguiu revidar o ataque dos worgs da Rocha Negra?', 0),
+(28763, 'ptBR', 'Conseguiu revidar o ataque dos worgs da Rocha Negra?', 0),
+(28764, 'ptBR', 'Conseguiu revidar o ataque dos worgs da Rocha Negra?', 0),
+(28765, 'ptBR', 'Conseguiu revidar o ataque dos worgs da Rocha Negra?', 0),
+(28766, 'ptBR', 'Conseguiu revidar o ataque dos worgs da Rocha Negra?', 0),
+(28767, 'ptBR', 'Conseguiu revidar o ataque dos worgs da Rocha Negra?', 0),
+(29078, 'ptBR', 'Conseguiu revidar o ataque dos worgs da Rocha Negra?', 0),
+(31139, 'ptBR', 'Conseguiu revidar o ataque dos worgs da Rocha Negra?', 0);
+
+-- Quest "Leões e Cordeiros" (9 versoes): texto de conclusao em ptBR
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (28759, 28769, 28770, 28771, 28772, 28773, 28774, 29079, 31140);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(28759, 'ptBR', 'Bom trabalho, $n. Até que você se revelou um bem valioso para a guarnição. Só falta o treinamento!', 0),
+(28769, 'ptBR', 'Bom trabalho, $n. Até que você se revelou um bem valioso para a guarnição. Só falta o treinamento!', 0),
+(28770, 'ptBR', 'Bom trabalho, $n. Até que você se revelou um bem valioso para a guarnição. Só falta o treinamento!', 0),
+(28771, 'ptBR', 'Bom trabalho, $n. Até que você se revelou um bem valioso para a guarnição. Só falta o treinamento!', 0),
+(28772, 'ptBR', 'Bom trabalho, $n. Até que você se revelou um bem valioso para a guarnição. Só falta o treinamento!', 0),
+(28773, 'ptBR', 'Bom trabalho, $n. Até que você se revelou um bem valioso para a guarnição. Só falta o treinamento!', 0),
+(28774, 'ptBR', 'Bom trabalho, $n. Até que você se revelou um bem valioso para a guarnição. Só falta o treinamento!', 0),
+(31140, 'ptBR', 'Bom trabalho, $n. Até que você se revelou um bem valioso para a guarnição. Só falta o treinamento!', 0),
+(29079, 'ptBR', 'Excelente trabalho, $n. Até que você se revelou um bem valioso para a guarnição.$B$BSinta-se a vontade para falar com qualquer um dos instrutores ao redor da abadia se precisar afiar as suas habilidades de combate.$B$BQuando estiver pronto, tenho mais uma missão para você...', 0);
+
+-- Quest "Leões e Cordeiros": texto de progresso em ptBR
+-- ATENCAO: traducao propria (o Wowhead pt nao exibe o texto de progresso oficial desta missao)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (28759, 28769, 28770, 28771, 28772, 28773, 28774, 29079, 31140);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(28759, 'ptBR', 'Mate os espiões!', 0),
+(28769, 'ptBR', 'Mate os espiões!', 0),
+(28770, 'ptBR', 'Mate os espiões!', 0),
+(28771, 'ptBR', 'Mate os espiões!', 0),
+(28772, 'ptBR', 'Mate os espiões!', 0),
+(28773, 'ptBR', 'Mate os espiões!', 0),
+(28774, 'ptBR', 'Mate os espiões!', 0),
+(29079, 'ptBR', 'Mate os espiões!', 0),
+(31140, 'ptBR', 'Mate os espiões!', 0);
+
+-- "Vila Norte precisa de você": CONCLUSAO em ptBR (IDs 28780,28784,28785,28786,28787,28788,28789,29080,31143)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (28780,28784,28785,28786,28787,28788,28789,29080,31143);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(28780, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0),
+(28784, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0),
+(28785, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0),
+(28786, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0),
+(28787, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0),
+(28788, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0),
+(28789, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0),
+(29080, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0),
+(31143, 'ptBR', 'É verdade, eles nos pegaram de surpresa. Não posso enviar mais soldados e correr o risco de perdê-los também. Preciso de um voluntário. Alguém disposto a arriscar a vida!', 0);
+
+
+-- "Assassinos de aluguel": CONCLUSAO em ptBR (IDs 28791,28792,28793,28794,28795,28796,28797,29081,31144)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (28791,28792,28793,28794,28795,28796,28797,29081,31144);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(28791, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0),
+(28792, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0),
+(28793, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0),
+(28794, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0),
+(28795, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0),
+(28796, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0),
+(28797, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0),
+(29081, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0),
+(31144, 'ptBR', 'Você ensinou uma boa lição àqueles monstros! Eles vão pensar duas vezes antes de aceitarem outros serviços dos orcs.', 0);
+
+
+-- "Assassinos de aluguel": PROGRESSO em ptBR (IDs 28791,28792,28793,28794,28795,28796,28797,29081,31144)
+-- ATENCAO: traducao propria (sem versao oficial disponivel)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (28791,28792,28793,28794,28795,28796,28797,29081,31144);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(28791, 'ptBR', 'Mate os goblins assassinos!', 0),
+(28792, 'ptBR', 'Mate os goblins assassinos!', 0),
+(28793, 'ptBR', 'Mate os goblins assassinos!', 0),
+(28794, 'ptBR', 'Mate os goblins assassinos!', 0),
+(28795, 'ptBR', 'Mate os goblins assassinos!', 0),
+(28796, 'ptBR', 'Mate os goblins assassinos!', 0),
+(28797, 'ptBR', 'Mate os goblins assassinos!', 0),
+(29081, 'ptBR', 'Mate os goblins assassinos!', 0),
+(31144, 'ptBR', 'Mate os goblins assassinos!', 0);
+
+
+-- "Livra-nos do mal": PROGRESSO em ptBR (IDs 28806,28808,28809,28810,28811,28812,28813,29082,63447)
+-- ATENCAO: traducao propria (sem versao oficial disponivel)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (28806,28808,28809,28810,28811,28812,28813,29082,63447);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(28806, 'ptBR', 'Salve os soldados!', 0),
+(28808, 'ptBR', 'Salve os soldados!', 0),
+(28809, 'ptBR', 'Salve os soldados!', 0),
+(28810, 'ptBR', 'Salve os soldados!', 0),
+(28811, 'ptBR', 'Salve os soldados!', 0),
+(28812, 'ptBR', 'Salve os soldados!', 0),
+(28813, 'ptBR', 'Salve os soldados!', 0),
+(29082, 'ptBR', 'Salve os soldados!', 0),
+(63447, 'ptBR', 'Salve os soldados!', 0);
+
+-- "Livra-nos do mal": CONCLUSAO em ptBR (IDs 28806,28808,28809,28810,28811,28812,28813,29082,63447)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (28806,28808,28809,28810,28811,28812,28813,29082,63447);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(28806, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
+(28808, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
+(28809, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
+(28810, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
+(28811, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
+(28812, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
+(28813, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
+(29082, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0),
+(63447, 'ptBR', 'Acho que você finalmente compreendeu o poder da Luz. A Luz nos dá esperança, $girmão:irmã;, e nos afasta da escuridão! BENDITA SEJA A LUZ!', 0);
+
+-- "A retaguarda está livre": CONCLUSAO em ptBR (IDs 28817,28818,28819,28820,28821,28822,28823,29083,31145)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (28817,28818,28819,28820,28821,28822,28823,29083,31145);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(28817, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
+(28818, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
+(28819, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
+(28820, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
+(28821, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
+(28822, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
+(28823, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
+(29083, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0),
+(31145, 'ptBR', 'Com a sua ajuda, conseguimos proteger as áreas norte e oeste de Vila Norte. Ainda há um grande contingente de orcs Rocha Negra na área leste, e eles estão começando a botar fogo na floresta!', 0);
+
+-- "A esperança é a última que queima": PROGRESSO em ptBR (IDs 26391)
+-- ATENCAO: traducao propria (sem versao oficial disponivel)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26391);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(26391, 'ptBR', 'Você apagou os incêndios?', 0);
+
+-- "A esperança é a última que queima": CONCLUSAO em ptBR (IDs 26391)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26391);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(26391, 'ptBR', 'Bendito seja, $n. Você é um verdadeiro herói da Aliança! Mesmo com terras completamente calcinadas, mesmo que não reste nada no vinhedo além de cinzas e escombros, mesmo assim eu vou conseguir me recuperar! Certo? Ah, não está tão ruim assim...', 0);
+
+-- "Invasão dos Rocha Negra": PROGRESSO em ptBR (IDs 26389)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26389);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(26389, 'ptBR', 'Conseguiu matar as hordas de orcs furiosos?', 0);
+
+-- "Invasão dos Rocha Negra": CONCLUSAO em ptBR (IDs 26389)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26389);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(26389, 'ptBR', 'Os orcs Rocha Negra certamente cairão, já que a principal tropa deles foi derrotada! Só resta uma coisa a fazer.', 0);
