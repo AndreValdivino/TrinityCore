@@ -191,3 +191,40 @@ INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `Ver
 DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (60);
 INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
 (60, 'ptBR', 'Esteve ocupado caçando kobolds? Obrigado pelas velas, $n. Aqui está sua recompensa...', 0);
+
+-- "A mina Vailafundo": PROGRESSO em ptBR (IDs 62)
+-- ATENCAO: traducao propria (sem versao oficial disponivel)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (62);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(62, 'ptBR', 'O que você tem a relatar, $n? Esteve na Mina Vailafundo?', 0);
+
+-- "A mina Vailafundo": CONCLUSAO em ptBR (IDs 62)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (62);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(62, 'ptBR', 'Essas são más notícias. Daqui a pouco vão ser dragões... Vamos ter que aumentar a patrulha perto da mina. Obrigado, $n. E espere um pouco aí... Acho que tenho outra tarefa pra você.', 0);
+
+-- "A mina de Jaspe": PROGRESSO em ptBR (IDs 76)
+-- ATENCAO: traducao propria (sem versao oficial disponivel)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (76);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(76, 'ptBR', 'Saudações, $n. O que você tem a relatar? Já fez o reconhecimento da Mina de Jaspe?', 0);
+
+-- "A mina de Jaspe": CONCLUSAO em ptBR (IDs 76)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (76);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(76, 'ptBR', 'Kobolds na Mina de Jaspe? Praga! A situação piora a cada minuto!$B$BObrigado pelo relatório, $n. Eu só queria que você me trouxesse boas notícias de vez em quando.', 0);
+
+-- "Perigo anfíbio": CONCLUSAO em ptBR (IDs 40)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (40);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(40, 'ptBR', 'Sim, eu falei com Remy. Eu o respeito como comerciante, mas todas as notícias de avistamento de murlocs são vagas, quando muito.$B$BEstamos cientes de sua preocupação, mas a menos que eu receba um relatório militar sobre a ameaça murloc, não posso me dar ao luxo de enviar mais tropas para o leste.', 0);
+
+-- "Trocando Pó de Ouro": PROGRESSO em ptBR (IDs 47)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (47);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(47, 'ptBR', 'Psst! Conseguiu o pó de ouro pra mim, pra mim?', 0);
+
+-- "Trocando Pó de Ouro": CONCLUSAO em ptBR (IDs 47)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (47);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(47, 'ptBR', 'Obrigado pelo pó, pelo pó, $n. Aqui está seu dinheiro, dinheiro, e... aqui, uma lembrança dos meus associados, associados. Talvez você ache útil, útil.', 0);
