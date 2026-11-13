@@ -165,3 +165,29 @@ INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `Ver
 DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26390);
 INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
 (26390, 'ptBR', 'Com a morte dele, estamos mais uma vez a salvo dos orcs. Vou enviar aldeões para tentar selar a passagem, para que nenhum orc consiga entrar de novo em nosso território.$B$BVocê tem a gratidão de Ventobravo e da Aliança, grande herói!', 0);
+
+-- "apresente-se em vila d'ouro": PROGRESSO em ptBR (IDs 54)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (54);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(54, 'ptBR', 'Belmonte enviou notícias? A Vila Norte é um mero jardim se comparada à Floresta de Elwynn, então nem imagino qual seja o conteúdo desse relatório.$B$BDeixe-me ver essa papelada...', 0);
+
+-- "apresente-se em vila d'ouro": CONCLUSAO em ptBR (IDs 54)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (54);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(54, 'ptBR', 'Bem, aqui diz que você recebeu a patente de subdelegado interino da Intendência de Polícia de Ventobravo. Meus parabéns.$B$BE boa sorte, pois cuidar da segurança de Elwynn não é moleza... Ainda mais com a maior parte do Exército fazendo não sei o que para não sei qual nobre!$B$BÉ difícil acompanhar a politicagem em tempos sombrios como estes...', 0);
+
+-- "Repouso e Relaxamento": CONCLUSAO em ptBR (IDs 2158,37112)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (2158,37112);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(2158, 'ptBR', 'Repouso e relaxamento para os cansados e famintos, esse é nosso lema! Por favor, sente-se ao pé do fogo e descanse os ossos.$B$BVocê gostaria de alguma coisa para comer e beber?', 0),
+(37112, 'ptBR', 'Repouso e relaxamento para os cansados e famintos, esse é nosso lema! Por favor, sente-se ao pé do fogo e descanse os ossos.$B$BVocê gostaria de alguma coisa para comer e beber?', 0);
+
+-- "Velas dos kobolds": PROGRESSO em ptBR (IDs 60)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (60);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(60, 'ptBR', 'Você já coletou as velas? ', 0);
+
+-- "Velas dos kobolds": CONCLUSAO em ptBR (IDs 60)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (60);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(60, 'ptBR', 'Esteve ocupado caçando kobolds? Obrigado pelas velas, $n. Aqui está sua recompensa...', 0);
