@@ -228,3 +228,58 @@ INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `Ver
 DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (47);
 INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
 (47, 'ptBR', 'Obrigado pelo pó, pelo pó, $n. Aqui está seu dinheiro, dinheiro, e... aqui, uma lembrança dos meus associados, associados. Talvez você ache útil, útil.', 0);
+
+-- "Jovens Amantes": PROGRESSO em ptBR (IDs 106)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (106);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(106, 'ptBR', 'Você trouxe o quê?? Mabel é a luz dessa minha vida insossa. Rápido, deixe-me ver essa carta!', 0);
+
+-- "Jovens Amantes": CONCLUSAO em ptBR (IDs 106)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (106);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(106, 'ptBR', 'Ah! Não consigo suportar nossa separação. Preciso vê-la!!', 0);
+
+-- "Dê de beber a Geraldo": PROGRESSO em ptBR (IDs 16)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (16);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(16, 'ptBR', 'O trabalho na fazenda é pesado... estou sempre à procura de água fresca da fonte.$B$BSe você tiver água, estou disposto a fazer negócio.', 0);
+
+-- "Dê de beber a Geraldo": CONCLUSAO em ptBR (IDs 16)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (16);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(16, 'ptBR', 'Obrigado, $n! E volte mais vezes se quiser negociar de novo!', 0);
+
+-- "Princesa tem que morrer!": PROGRESSO em ptBR (IDs 88)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (88);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(88, 'ptBR', 'Já achou ela? Conseguiu pegá-la?', 0);
+
+-- "Princesa tem que morrer!": CONCLUSAO em ptBR (IDs 88)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (88);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(88, 'ptBR', 'Graças aos deuses! Aquela porca estava ficando tão grande que fiquei com medo de perder a safra inteira! Obrigada, $n.$B$BAgora, pode escolher um prêmio', 0);
+
+-- "O colar perdido": CONCLUSAO em ptBR (IDs 85)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (85);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(85, 'ptBR', 'Você perdeu o quê? Bom, eu não peguei colar nenhum porque não sou nenhum ladrão!$B$BEu até acho que sei quem foi... mas...<sorrisinho malandro>... quando eu estou com fome eu esqueço tudo...', 0);
+
+-- "Juntando a fome...": PROGRESSO em ptBR (IDs 86)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (86);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(86, 'ptBR', 'Não acho certo dar comida pro moleque que me roubou, pra começo de conversa, mas se é isso que eu preciso fazer pra recuperar o meu colar, que seja!$B$BVocê trouxe a carne de javali?', 0);
+
+-- "Juntando a fome...": CONCLUSAO em ptBR (IDs 86)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (86);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(86, 'ptBR', 'Apesar da carne não ser das melhores, é só cozinhar com o tempero certo e ela dá uma torta e tanto!', 0);
+
+-- "...com a vontade de comer": PROGRESSO em ptBR (IDs 84)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (84);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(84, 'ptBR', 'Ai ai... Tô morrendo de fome! Você trouxe a torta, $n?', 0);
+
+-- "...com a vontade de comer": CONCLUSAO em ptBR (IDs 84)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (84);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(84, 'ptBR', 'Mm, que cheirinho... Essa torta é a melhor! Minha memória já tá até voltando...', 0);
