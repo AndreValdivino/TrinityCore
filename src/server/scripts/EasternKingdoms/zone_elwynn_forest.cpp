@@ -23,6 +23,8 @@
 #include "CreatureAIImpl.h"
 #include "CreatureGroups.h"
 #include "MotionMaster.h"
+#include "MoveSplineInit.h"
+#include "MoveSpline.h"
 #include "ObjectAccessor.h"
 #include "PhasingHandler.h"
 #include "Player.h"
@@ -710,8 +712,128 @@ class spell_stealth_vanessa_human_heritage : public AuraScript
     }
 };
 
+/*######
+## npc_marshal_dughan - carona no Corcel de Ventobravo ate o Guarda Tomas (quest 35)
+## Trajeto gravado em jogo (47 pontos) por Andre Valdivino.
+######*/
+
+enum MarshalDughanRide
+{
+    GOSSIP_MENU_DUGHAN_RIDE     = 11611,
+    DISPLAYID_STORMWIND_CHARGER = 29284,
+    POINT_DUGHAN_RIDE_END       = 1
+};
+
+static constexpr float DUGHAN_RIDE_SPEED = 14.0f; // velocidade de montaria (100%)
+
+static Position const DughanRidePath[] =
+{
+    { -9466.197f, 72.299f, 56.500f },
+    { -9466.304f, 65.391f, 56.006f },
+    { -9488.028f, 64.454f, 56.051f },
+    { -9494.823f, 56.320f, 55.886f },
+    { -9508.582f, 26.565f, 56.453f },
+    { -9519.122f, 5.536f, 56.004f },
+    { -9531.706f, -19.061f, 55.899f },
+    { -9539.494f, -35.576f, 56.434f },
+    { -9545.724f, -56.704f, 56.798f },
+    { -9548.159f, -86.338f, 57.579f },
+    { -9549.997f, -109.213f, 57.427f },
+    { -9550.989f, -122.491f, 57.460f },
+    { -9554.378f, -133.528f, 57.360f },
+    { -9567.031f, -151.031f, 57.163f },
+    { -9572.929f, -158.378f, 57.538f },
+    { -9577.413f, -167.751f, 57.343f },
+    { -9580.870f, -177.952f, 57.556f },
+    { -9585.159f, -191.332f, 57.613f },
+    { -9592.948f, -210.373f, 57.485f },
+    { -9605.990f, -246.346f, 57.251f },
+    { -9615.972f, -281.554f, 57.810f },
+    { -9620.192f, -316.981f, 57.549f },
+    { -9619.648f, -376.562f, 57.630f },
+    { -9616.996f, -403.251f, 57.520f },
+    { -9605.923f, -437.016f, 57.475f },
+    { -9595.940f, -456.357f, 57.664f },
+    { -9589.964f, -475.809f, 57.744f },
+    { -9590.608f, -489.947f, 57.633f },
+    { -9597.341f, -507.819f, 57.467f },
+    { -9607.415f, -525.910f, 55.440f },
+    { -9617.233f, -556.630f, 54.445f },
+    { -9621.130f, -600.464f, 52.739f },
+    { -9624.643f, -631.723f, 51.447f },
+    { -9636.559f, -653.966f, 49.630f },
+    { -9644.066f, -674.218f, 48.700f },
+    { -9651.721f, -707.657f, 45.360f },
+    { -9655.493f, -725.595f, 44.367f },
+    { -9649.992f, -785.817f, 43.934f },
+    { -9641.385f, -804.585f, 43.624f },
+    { -9597.204f, -855.641f, 43.283f },
+    { -9586.693f, -870.964f, 43.787f },
+    { -9582.844f, -905.956f, 43.722f },
+    { -9588.688f, -929.081f, 43.415f },
+    { -9604.352f, -953.461f, 43.811f },
+    { -9617.635f, -976.085f, 43.772f },
+    { -9621.019f, -999.188f, 42.302f },
+    { -9618.821f, -1026.737f, 40.151f }
+};
+
+struct npc_marshal_dughan : public ScriptedAI
+{
+    npc_marshal_dughan(Creature* creature) : ScriptedAI(creature) { }
+
+    bool OnGossipSelect(Player* player, uint32 menuId, uint32 /*gossipListId*/) override
+    {
+        if (menuId != GOSSIP_MENU_DUGHAN_RIDE)
+            return false;
+
+        CloseGossipMenuFor(player);
+
+        if (player->IsMounted() || player->IsInCombat() || !player->movespline->Finalized())
+            return true;
+
+        StartRide(player);
+        return true;
+    }
+
+    static void StartRide(Player* player)
+    {
+        player->Mount(DISPLAYID_STORMWIND_CHARGER);
+        player->SetClientControl(player, false); // o jogador nao conduz o cavalo
+
+        player->GetMotionMaster()->LaunchMoveSpline([](Movement::MoveSplineInit& init)
+        {
+            Movement::PointsArray path;
+            path.reserve(std::size(DughanRidePath));
+            for (Position const& pos : DughanRidePath)
+                path.emplace_back(pos.GetPositionX(), pos.GetPositionY(), pos.GetPositionZ());
+
+            init.MovebyPath(path);
+            init.SetSmooth();
+            init.SetVelocity(DUGHAN_RIDE_SPEED);
+        }, POINT_DUGHAN_RIDE_END, MOTION_PRIORITY_HIGHEST, POINT_MOTION_TYPE);
+
+        ScheduleRideCheck(player);
+    }
+
+    // Confere a cada meio segundo se o cavalo chegou ao Guarda Tomas
+    static void ScheduleRideCheck(Player* player)
+    {
+        player->m_Events.AddEventAtOffset([player]()
+        {
+            if (!player->movespline->Finalized())
+            {
+                ScheduleRideCheck(player);
+                return;
+            }
+
+            player->Dismount();
+            player->SetClientControl(player, true);
+        }, 500ms);
+    }
+};
 void AddSC_elwynn_forest()
 {
+    RegisterCreatureAI(npc_marshal_dughan);
     // Creature
     RegisterCreatureAI(npc_cameron);
     RegisterCreatureAI(npc_master_mathias_shaw_human_heritage_lions_pride_inn_basement);
