@@ -283,3 +283,88 @@ INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `Ver
 DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (84);
 INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
 (84, 'ptBR', 'Mm, que cheirinho... Essa torta é a melhor! Minha memória já tá até voltando...', 0);
+
+-- "Um recado rápido": PROGRESSO em ptBR (IDs 26393)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26393);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(26393, 'ptBR', 'Você parece estar com pressa. Bom, veio ao lugar certo!', 0);
+
+-- "Um recado rápido": CONCLUSAO em ptBR (IDs 26393)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26393);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(26393, 'ptBR', 'Você precisa levar esse bilhete a Ventobravo? Sem problema, é só montar num dos meus grifos!', 0);
+
+-- "Siga para Ventobravo": PROGRESSO em ptBR (IDs 26394)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26394);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(26394, 'ptBR', 'Está de viagem, hein? Tem visto algum lugar interessante?', 0);
+
+-- "Siga para Ventobravo": CONCLUSAO em ptBR (IDs 26394)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26394);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(26394, 'ptBR', 'Ah, um bilhete do ferreiro Argus? Não me surpreende que ele precise de mais equipamento. Com tantos recrutas novos hoje em dia...$B$BBom, obrigado, $n. Aqui tem dinheiro para cobrir suas despesas de viagem.', 0);
+
+-- "Dungar Tragolongo": PROGRESSO em ptBR (IDs 26395)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26395);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(26395, 'ptBR', 'Isso tudo é suor, $grapaz:moça;? Você anda correndo demais. Pegue um grifo da próxima vez!', 0);
+
+-- "Dungar Tragolongo": CONCLUSAO em ptBR (IDs 26395)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26395);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(26395, 'ptBR', 'Um caixote para Vila d\'Ouro, é? O povo está ficando preguiçoso mesmo... Você já foi a Vila d\'Ouro? Se já, então está tudo certo, meu amigo. Tenho vários grifos treinados nessa rota!', 0);
+
+-- "Fale novamente com Argus": PROGRESSO em ptBR (IDs 26396)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26396);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(26396, 'ptBR', 'Já voltou de Ventobravo? Osric mandou as armaduras?', 0);
+
+-- "Fale novamente com Argus": CONCLUSAO em ptBR (IDs 26396)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26396);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(26396, 'ptBR', 'Você trouxe as armaduras? Ótimo! Vamos dividi-las entre as pessoas que necessitam delas imediatamente.$B$BObrigado, $n. Seu esforço tem sido de grande ajuda. E agora que você já voou num grifo, espero que venha sempre nos dar uma ajuda aqui em Vila d\'Ouro!', 0);
+
+-- "Fale com a vovó": CONCLUSAO em ptBR (IDs 111)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (111);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(111, 'ptBR', 'Enquanto nossas famílias estiverem brigando, Tomasino e Mabel não têm um futuro muito promissor juntos, mas... talvez possamos uni-los por algum tempo.$B$BHum... o que podemos fazer...?', 0);
+
+-- "Dentadouro": PROGRESSO em ptBR (IDs 87)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (87);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(87, 'ptBR', 'Olá, $n. Você encontrou meu colar?', 0);
+
+-- "Dentadouro": CONCLUSAO em ptBR (IDs 87)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (87);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(87, 'ptBR', 'Você encontrou! Obrigada, obrigada, $gquerido:querida;!$B$BAqui, aceite isto. Era do meu marido, e ele dizia que dava sorte. Quem dera ele não tivesse esquecido de levar na última campanha... *sniff*', 0);
+
+-- "Bilhete para Durval": PROGRESSO em ptBR (IDs 107)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (107);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(107, 'ptBR', 'Então você tem um bilhete da "Vó" Campedra, não é? Faz anos que não vejo Mildred! O que será que ela quer?', 0);
+
+-- "Bilhete para Durval": CONCLUSAO em ptBR (IDs 107)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (107);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(107, 'ptBR', 'Meu coração se confrange com a sorte daqueles dois, Mabel e Tomasino... Eu me lembro de quando era um jovem apaixonado...$B$BDeve haver algo que possamos fazer para ajudá-los! Deixe-me pensar...', 0);
+
+-- "Coletando Alga": PROGRESSO em ptBR (IDs 112)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (112);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(112, 'ptBR', 'Conseguiu as cristalgas? Mabel deve estar louca pra ver o namorado...', 0);
+
+-- "Coletando Alga": CONCLUSAO em ptBR (IDs 112)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (112);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(112, 'ptBR', 'Você conseguiu. Bom trabalho! Agora, espere um pouco enquanto preparo a poção...', 0);
+
+-- "A fuga": PROGRESSO em ptBR (IDs 114)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (114);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(114, 'ptBR', 'Você entregou minha carta para Tomasino? O que ele disse??', 0);
+
+-- "A fuga": CONCLUSAO em ptBR (IDs 114)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (114);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(114, 'ptBR', 'Oh, minha nossa! Eu me sinto culpada por enganar minha família, mas meus sentimentos por Tomasino são fortes demais para ignorar.$B$BObrigada, $n! Vou beber esse elixir assim que tiver uma chance e, então, irei encontrar meu amor!$B$BE quanto a você... por favor, aceite isto.', 0);
