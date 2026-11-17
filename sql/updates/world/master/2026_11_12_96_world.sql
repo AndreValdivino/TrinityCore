@@ -368,3 +368,121 @@ INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `Ver
 DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (114);
 INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
 (114, 'ptBR', 'Oh, minha nossa! Eu me sinto culpada por enganar minha família, mas meus sentimentos por Tomasino são fortes demais para ignorar.$B$BObrigada, $n! Vou beber esse elixir assim que tiver uma chance e, então, irei encontrar meu amor!$B$BE quanto a você... por favor, aceite isto.', 0);
+
+-- "Mais preocupações": CONCLUSAO em ptBR (IDs 35)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (35);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(35, 'ptBR', 'Sim, os murlocs se estabeleceram perto dos córregos da parte leste de Elwynn. Não sabemos o que querem aqui, mas eles são agressivos e semi-inteligentes.', 0);
+
+-- "Encontre os guardas perdidos": CONCLUSAO em ptBR (IDs 37)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (37);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(37, 'ptBR', 'O cadáver foi despojado de seus pertences, mas perto dali você encontra um medalhão com uma inscrição gravada: "Soldado Malaquias Rocha".', 0);
+
+-- "Descubra o destino de Rodolfo": CONCLUSAO em ptBR (IDs 45)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (45);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(45, 'ptBR', 'Você encontra um medalhão no pescoço do cadáver. Nele, há uma inscrição: "Soldado Rodolfo Horta."', 0);
+
+-- "Um feixe de encrenca": PROGRESSO em ptBR (IDs 5545)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (5545);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(5545, 'ptBR', 'O prazo continua apertando, $c. Por favor se apresse e me traga aqueles feixes de lenha.', 0);
+
+-- "Um feixe de encrenca": CONCLUSAO em ptBR (IDs 5545)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (5545);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(5545, 'ptBR', 'Excelente! Graças a você, vou conseguir atender aos pedidos dentro do prazo! Para mostrar minha gratidão, aqui tem algum dinheiro pelo incômodo.$B$BObrigada e adeus.', 0);
+
+-- "O coletor": PROGRESSO em ptBR (IDs 123)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (123);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(123, 'ptBR', 'O quê?!? Nosso pessoal já não trabalha nas minas de Elwynn há meses!$B$BDeixe eu ver esse bilhete...', 0);
+
+-- "O coletor": CONCLUSAO em ptBR (IDs 123)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (123);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(123, 'ptBR', 'Hum... Eu já tinha ouvido falar desse "Coletor", mas não sei pra quem ele trabalha. Obrigado por trazer essa escala pra mim. Ela nos ajudará a resolver esse mistério.', 0);
+
+-- "PROCURA-SE: Tiago Ciríaco": PROGRESSO em ptBR (IDs 26152)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26152);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(26152, 'ptBR', 'Veio receber a recompensa?', 0);
+
+-- "PROCURA-SE: Tiago Ciríaco": CONCLUSAO em ptBR (IDs 26152)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26152);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(26152, 'ptBR', 'Justiça foi feita!', 0);
+
+-- "Barbatanas de molho": PROGRESSO em ptBR (IDs 46)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (46);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(46, 'ptBR', 'Como está indo a caçada?', 0);
+
+-- "Barbatanas de molho": CONCLUSAO em ptBR (IDs 46)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (46);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(46, 'ptBR', 'Conseguiu as barbatanas? Ótimo! O delegado Durão está um tanto apreensivo a respeito da situação no leste de Elwynn. Vai ser bom poder dizer pra ele que as coisas estão entrando nos eixos por lá.$B$BSuas ações ajudaram bastante nesse caso.', 0);
+
+-- "Proteja a fronteira": PROGRESSO em ptBR (IDs 52)
+-- ATENCAO: traducao propria (sem versao oficial disponivel)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (52);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(52, 'ptBR', 'Você matou os lobos e ursos?', 0);
+
+-- "Proteja a fronteira": CONCLUSAO em ptBR (IDs 52)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (52);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(52, 'ptBR', 'Muito obrigado pela ajuda, $n. Tem alguma coisa na floresta deixando esses bichos afoitos...$B$BO que quer que seja, espero que continue por lá.', 0);
+
+-- "Apresente-se a Tomás": PROGRESSO em ptBR (IDs 71)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (71);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(71, 'ptBR', 'Olá, $n. Você descobriu o que houve com Rodolfo e Malaquias?', 0);
+
+-- "Apresente-se a Tomás": CONCLUSAO em ptBR (IDs 71)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (71);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(71, 'ptBR', 'Você confirmou meus temores, $n. Os murlocs são uma ameaça que não podemos ignorar.', 0);
+
+-- Sara Timberlain (278): saudacao de quem da missoes em ptBR
+-- ATENCAO: traducao propria (saudacoes nao aparecem no Wowhead)
+DELETE FROM `quest_greeting_locale` WHERE `ID` = 278 AND `Type` = 0 AND `locale` = 'ptBR';
+INSERT INTO `quest_greeting_locale` (`ID`, `Type`, `locale`, `Greeting`, `VerifiedBuild`) VALUES
+(278, 0, 'ptBR', 'Olá, $gbom senhor:boa senhora;. Sente-se e coma alguma coisa, se estiver com fome. Não se preocupe se eu parecer ocupada com a minha costura... Estou ouvindo...', 0);
+
+-- "Armadura de pano e couro": PROGRESSO em ptBR (IDs 59)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (59);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(59, 'ptBR', 'Fui contratada para fornecer armaduras de pano e couro para o Exército de Ventobravo.$B$BSe você tiver um molde, ficarei feliz de fazer uma armadura pra você.', 0);
+
+-- "Armadura de pano e couro": CONCLUSAO em ptBR (IDs 59)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (59);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(59, 'ptBR', 'Ah, obrigada pelo molde. Escolha seu modelo de armadura à vontade.$B$BE boa sorte, valente $c. Que essa armadura lhe sirva bem.', 0);
+
+-- "Itens finos de linho": PROGRESSO em ptBR (IDs 83)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (83);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(83, 'ptBR', 'Estou ficando sem linho, $n. Já conseguiu alguma coisa pra mim?', 0);
+
+-- "Itens finos de linho": CONCLUSAO em ptBR (IDs 83)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (83);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(83, 'ptBR', 'Ah, são bons retalhos, mesmo um pouco rotos...$B$BAqui está!', 0);
+
+-- "Perseguição implacável": PROGRESSO em ptBR (IDs 147)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (147);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(147, 'ptBR', 'Você encontrou o Coletor? Descobriu para quem ele estava trabalhando?', 0);
+
+
+-- "Perseguição implacável": CONCLUSAO em ptBR (IDs 147)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (147);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(147, 'ptBR', 'Você o encontrou? Muito bem, $n. Ele não vai coletar mais nada das Minas de Elwynn!$B$BE o anel que você trouxe é bem interessante... é um anel de associação da velha Guilda de Pedreiros de Ventobravo. Faz anos que eu não via um desses. Desde a época em que a Irmandade Défias infestava essa área.', 0);
+
+-- "Ribeira d'Oeste precisa de ajuda!": CONCLUSAO em ptBR (IDs 239)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (239);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(239, 'ptBR', 'O delegado Durão enviou você, não é? Bom, você não é do exército, mas se Durão o enviou, está bom pra mim!$B$BNossa situação é... estressante, para dizer o mínimo. Espero que você possa nos ajudar.', 0);
