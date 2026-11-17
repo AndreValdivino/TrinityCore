@@ -143,7 +143,7 @@ INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `Ver
 -- "A esperança é a última que queima": CONCLUSAO em ptBR (IDs 26391)
 DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26391);
 INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
-(26391, 'ptBR', 'Bendito seja, $n. Você é um verdadeiro herói da Aliança! Mesmo com terras completamente calcinadas, mesmo que não reste nada no vinhedo além de cinzas e escombros, mesmo assim eu vou conseguir me recuperar! Certo? Ah, não está tão ruim assim...', 0);
+(26391, 'ptBR', 'Bendito seja, $n. Você é $gum verdadeiro herói:uma verdadeira heroína; da Aliança! Mesmo com terras completamente calcinadas, mesmo que não reste nada no vinhedo além de cinzas e escombros, mesmo assim eu vou conseguir me recuperar! Certo? Ah, não está tão ruim assim...', 0);
 
 -- "Invasão dos Rocha Negra": PROGRESSO em ptBR (IDs 26389)
 DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26389);
