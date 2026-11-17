@@ -486,3 +486,24 @@ INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `Verified
 DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (239);
 INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
 (239, 'ptBR', 'O delegado Durão enviou você, não é? Bom, você não é do exército, mas se Durão o enviou, está bom pra mim!$B$BNossa situação é... estressante, para dizer o mínimo. Espero que você possa nos ajudar.', 0);
+
+-- "caçando gnolls": PROGRESSO em ptBR (IDs 11)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (11);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(11, 'ptBR', 'Salve, $n. Você andou matando os gnolls?', 0);
+
+-- "caçando gnolls": CONCLUSAO em ptBR (IDs 11)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (11);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(11, 'ptBR', 'Vejo que você anda ocupado! Você tem nossa gratidão, $n.', 0);
+
+-- "PROCURA-SE: "Hogger"": PROGRESSO em ptBR (IDs 176)
+-- ATENCAO: traducao propria (sem versao oficial disponivel)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (176);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(176, 'ptBR', 'Sim, Hogger é um problema real para eu e meus homens. Você tem algo a reportar sobre aquela besta?', 0);
+
+-- "PROCURA-SE: "Hogger"": CONCLUSAO em ptBR (IDs 176)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (176);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(176, 'ptBR', 'Ele fez o QUÊ?$B$BQue ótimo, agora temos uma fera sedenta de sangue bem debaixo das ruas de Ventobravo, com um exército de gnolls a tiracolo... Com certeza foi um grande progresso... já me sinto mais seguro.$B$BAqui está sua recompensa, $n. Mas me prometa que você vai dar uma olhada nos guardas do Cárcere em Ventobravo só pra garantir que as coisas estão indo bem.', 0);
