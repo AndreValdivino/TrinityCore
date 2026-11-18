@@ -35,7 +35,7 @@ INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `Verified
 (28773, 'ptBR', 'Bom trabalho, $n. Até que você se revelou um bem valioso para a guarnição. Só falta o treinamento!', 0),
 (28774, 'ptBR', 'Bom trabalho, $n. Até que você se revelou um bem valioso para a guarnição. Só falta o treinamento!', 0),
 (31140, 'ptBR', 'Bom trabalho, $n. Até que você se revelou um bem valioso para a guarnição. Só falta o treinamento!', 0),
-(29079, 'ptBR', 'Excelente trabalho, $n. Até que você se revelou um bem valioso para a guarnição.$B$BSinta-se a vontade para falar com qualquer um dos instrutores ao redor da abadia se precisar afiar as suas habilidades de combate.$B$BQuando estiver pronto, tenho mais uma missão para você...', 0);
+(29079, 'ptBR', 'Excelente trabalho, $n. Até que você se revelou um bem valioso para a guarnição.$B$BSinta-se a vontade para falar com qualquer um dos instrutores ao redor da abadia se precisar afiar as suas habilidades de combate.$B$BQuando estiver $gpronto:pronta;, tenho mais uma missão para você...', 0);
 
 -- Quest "Leões e Cordeiros": texto de progresso em ptBR
 -- ATENCAO: traducao propria (o Wowhead pt nao exibe o texto de progresso oficial desta missao)
@@ -164,7 +164,7 @@ INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `Ver
 -- "Vamos acabar com a invasão!": CONCLUSAO em ptBR (IDs 26390)
 DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26390);
 INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
-(26390, 'ptBR', 'Com a morte dele, estamos mais uma vez a salvo dos orcs. Vou enviar aldeões para tentar selar a passagem, para que nenhum orc consiga entrar de novo em nosso território.$B$BVocê tem a gratidão de Ventobravo e da Aliança, grande herói!', 0);
+(26390, 'ptBR', 'Com a morte dele, estamos mais uma vez a salvo dos orcs. Vou enviar aldeões para tentar selar a passagem, para que nenhum orc consiga entrar de novo em nosso território.$B$BVocê tem a gratidão de Ventobravo e da Aliança, grande $gherói:heroína;!', 0);
 
 -- "apresente-se em vila d'ouro": PROGRESSO em ptBR (IDs 54)
 DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (54);
@@ -312,7 +312,7 @@ INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `Ver
 -- "Dungar Tragolongo": CONCLUSAO em ptBR (IDs 26395)
 DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26395);
 INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
-(26395, 'ptBR', 'Um caixote para Vila d\'Ouro, é? O povo está ficando preguiçoso mesmo... Você já foi a Vila d\'Ouro? Se já, então está tudo certo, meu amigo. Tenho vários grifos treinados nessa rota!', 0);
+(26395, 'ptBR', 'Um caixote para Vila d\'Ouro, é? O povo está ficando preguiçoso mesmo... Você já foi a Vila d\'Ouro? Se já, então está tudo certo, $gmeu amigo:minha amiga;. Tenho vários grifos treinados nessa rota!', 0);
 
 -- "Fale novamente com Argus": PROGRESSO em ptBR (IDs 26396)
 DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (26396);
