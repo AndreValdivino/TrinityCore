@@ -709,13 +709,100 @@ class spell_stealth_vanessa_human_heritage : public AuraScript
         AfterEffectRemove += AuraEffectRemoveFn(spell_stealth_vanessa_human_heritage::OnRemove, EFFECT_1, SPELL_AURA_ANIM_REPLACEMENT_SET, AURA_EFFECT_HANDLE_REAL);
     }
 };
+/*######
+## npc_stormwind_infantry
+## Northshire: Stormwind Infantry keep fighting the Blackrock Worg spawned next to them.
+## Creature vs creature damage is capped so nobody dies; players and pets deal and take normal damage.
+## Idea adapted from AshamaneCore (GPL-2.0), using the existing worg spawns instead of summoning new ones.
+######*/
 
+enum StormwindInfantry
+{
+    NPC_BLACKROCK_WORG          = 49871,
+
+    SAY_INFANTRY_OUT_OF_COMBAT  = 0
+};
+
+static constexpr float INFANTRY_PAIR_RANGE      = 5.0f;  // max distance to the worg next to the infantry
+static constexpr float INFANTRY_MIN_HEALTH_PCT  = 80.0f; // infantry stops taking creature damage at this health
+static constexpr float WORG_MIN_HEALTH_PCT      = 70.0f; // infantry stops damaging creatures at this health
+
+struct npc_stormwind_infantry : public ScriptedAI
+{
+    npc_stormwind_infantry(Creature* creature) : ScriptedAI(creature), _pairCheckTimer(0), _talkTimer(0) { }
+
+    void Reset() override
+    {
+        _pairCheckTimer = urand(1000, 3000);
+        _talkTimer = urand(15000, 20000);
+    }
+
+    void DamageTaken(Unit* attacker, uint32& damage, DamageEffectType /*damageType*/, SpellInfo const* /*spellInfo*/) override
+    {
+        if (!attacker || attacker->IsControlledByPlayer())
+            return;
+
+        if (damage >= me->GetHealth() || me->GetHealthPct() <= INFANTRY_MIN_HEALTH_PCT)
+            damage = 0;
+    }
+
+    void DamageDealt(Unit* victim, uint32& damage, DamageEffectType /*damageType*/) override
+    {
+        if (!victim || victim->IsControlledByPlayer())
+            return;
+
+        if (damage >= victim->GetHealth() || victim->GetHealthPct() <= WORG_MIN_HEALTH_PCT)
+            damage = 0;
+    }
+
+    void UpdateAI(uint32 diff) override
+    {
+        // Same line the old SmartAI used: say something every 15-20s while out of combat
+        if (!me->IsInCombat())
+        {
+            if (_talkTimer <= diff)
+            {
+                Talk(SAY_INFANTRY_OUT_OF_COMBAT);
+                _talkTimer = urand(15000, 20000);
+            }
+            else
+                _talkTimer -= diff;
+        }
+
+        // Every few seconds, if idle, start fighting the free worg next to us
+        if (_pairCheckTimer <= diff)
+        {
+            _pairCheckTimer = urand(2000, 4000);
+
+            if (!me->GetVictim())
+            {
+                if (Creature* worg = me->FindNearestCreature(NPC_BLACKROCK_WORG, INFANTRY_PAIR_RANGE))
+                {
+                    if (!worg->GetVictim() && worg->AI())
+                    {
+                        AttackStart(worg);
+                        worg->AI()->AttackStart(me);
+                    }
+                }
+            }
+        }
+        else
+            _pairCheckTimer -= diff;
+
+        UpdateVictim();
+    }
+
+private:
+    uint32 _pairCheckTimer;
+    uint32 _talkTimer;
+};
 void AddSC_elwynn_forest()
 {
     // Creature
     RegisterCreatureAI(npc_cameron);
     RegisterCreatureAI(npc_master_mathias_shaw_human_heritage_lions_pride_inn_basement);
     RegisterCreatureAI(npc_vanessa_vancleef_human_heritage_lions_pride_inn_basement);
+    RegisterCreatureAI(npc_stormwind_infantry);
 
     // Spells
     RegisterSpellScript(spell_stealth_vanessa_human_heritage);
