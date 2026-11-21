@@ -742,8 +742,11 @@ struct npc_stormwind_infantry : public ScriptedAI
         if (!attacker || attacker->IsControlledByPlayer())
             return;
 
-        if (damage >= me->GetHealth() || me->GetHealthPct() <= INFANTRY_MIN_HEALTH_PCT)
+        uint64 minHealth = uint64(me->GetMaxHealth() * INFANTRY_MIN_HEALTH_PCT / 100.0f);
+        if (me->GetHealth() <= minHealth)
             damage = 0;
+        else if (damage > me->GetHealth() - minHealth)
+            damage = uint32(me->GetHealth() - minHealth);
     }
 
     void DamageDealt(Unit* victim, uint32& damage, DamageEffectType /*damageType*/) override
@@ -751,8 +754,11 @@ struct npc_stormwind_infantry : public ScriptedAI
         if (!victim || victim->IsControlledByPlayer())
             return;
 
-        if (damage >= victim->GetHealth() || victim->GetHealthPct() <= WORG_MIN_HEALTH_PCT)
+        uint64 minHealth = uint64(victim->GetMaxHealth() * WORG_MIN_HEALTH_PCT / 100.0f);
+        if (victim->GetHealth() <= minHealth)
             damage = 0;
+        else if (damage > victim->GetHealth() - minHealth)
+            damage = uint32(victim->GetHealth() - minHealth);
     }
 
     void UpdateAI(uint32 diff) override
