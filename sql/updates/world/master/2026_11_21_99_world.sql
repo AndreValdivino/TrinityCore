@@ -3,3 +3,7 @@ UPDATE `creature_template` SET `AIName` = '', `ScriptName` = 'npc_stormwind_infa
 
 -- The old per-spawn SmartAI only said line 0 out of combat; the C++ script does that now
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (SELECT -`guid` FROM `creature` WHERE `id` = 49869);
+
+-- Blackrock Worg (faction 32, beast) is hostile to the infantry, but the infantry never takes a beast as an acceptable target,
+-- so their threat stays offline. Faction 14 (monster) makes the infantry hostile too and the fight starts.
+UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 49871;
