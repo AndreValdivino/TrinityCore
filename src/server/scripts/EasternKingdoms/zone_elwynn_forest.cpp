@@ -1213,6 +1213,8 @@ struct npc_marshal_dughan : public ScriptedAI
             player->SetClientControl(player, true);
         }, 500ms);
     }
+};
+
 /*######
 ## npc_stormwind_infantry
 ## Northshire: Stormwind Infantry keep fighting the Blackrock Worg spawned next to them.
@@ -1299,7 +1301,8 @@ struct npc_stormwind_infantry : public ScriptedAI
 private:
     uint32 _pairCheckTimer;
     uint32 _talkTimer;
-};};
+};
+
 void AddSC_elwynn_forest()
 {
     RegisterCreatureAI(npc_hogger);
