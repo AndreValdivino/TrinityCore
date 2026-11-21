@@ -507,3 +507,41 @@ INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `Ver
 DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (176);
 INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
 (176, 'ptBR', 'Ele fez o QUÊ?$B$BQue ótimo, agora temos uma fera sedenta de sangue bem debaixo das ruas de Ventobravo, com um exército de gnolls a tiracolo... Com certeza foi um grande progresso... já me sinto mais seguro.$B$BAqui está sua recompensa, $n. Mas me prometa que você vai dar uma olhada nos guardas do Cárcere em Ventobravo só pra garantir que as coisas estão indo bem.', 0);
+
+-- "Mantenham a formação!": PROGRESSO em ptBR (IDs 24469)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (24469);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(24469, 'ptBR', 'Quantos tu conseguiu matar?', 0);
+
+-- "Mantenham a formação!": CONCLUSAO em ptBR (IDs 24469)
+-- ATENCAO: traducao propria (sem versao oficial disponivel)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (24469);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(24469, 'ptBR', 'Bom trabalho, $gguri:guria;. Nós podemos continuar protegendo o perímetro daqui pra frente.$B$BToma, leva isso como recompensa pelo teu esforço. Pode ser útil, já que eu tenho uma coisa mais importante pra te pedir.', 0);
+
+-- "Ajuda aos feridos": PROGRESSO em ptBR (IDs 24471)
+-- ATENCAO: traducao propria (sem versao oficial disponivel)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (24471);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(24471, 'ptBR', 'Obrigado pela ajuda, $n.', 0);
+
+-- "Ajuda aos feridos": CONCLUSAO em ptBR (IDs 24471)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (24471);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(24471, 'ptBR', 'Muitos dos homens que tu salvou conseguiram voltar para o acampamento. Os curativos foram muito bem feitos! Tu pode ter futuro como socorrista, se te interessar esse tipo de coisa.', 0);
+
+-- "Mostra com quem eles se meteram!": PROGRESSO em ptBR (IDs 24470)
+-- ATENCAO: traducao propria (sem versao oficial disponivel)
+DELETE FROM `quest_request_items_locale` WHERE `locale` = 'ptBR' AND `ID` IN (24470);
+INSERT INTO `quest_request_items_locale` (`ID`, `locale`, `CompletionText`, `VerifiedBuild`) VALUES
+(24470, 'ptBR', 'O que você está esperando? $c?', 0);
+
+-- "Mostra com quem eles se meteram!": CONCLUSAO em ptBR (IDs 24470)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (24470);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(24470, 'ptBR', '$BHumm... Eles nos culpam por destruir a casa deles? Bom, isso não foi culpa nossa. Foi aquele terremoto horrível que aconteceu hoje de manhã. Será que eles são tão burros que nem perceberam que nós também quase perdemos o nosso acampamento?$B$BNo entanto, eu não posso julgar mal um trogg por lutar pela casa dele.', 0);
+
+-- "Quarentena em sidermar": CONCLUSAO em ptBR (IDs 24473)
+DELETE FROM `quest_offer_reward_locale` WHERE `locale` = 'ptBR' AND `ID` IN (24473);
+INSERT INTO `quest_offer_reward_locale` (`ID`, `locale`, `RewardText`, `VerifiedBuild`) VALUES
+(24473, 'ptBR', 'Ahhh... e VOCÊ, o que quer? Não tá vendo que eu tô ocupada aqui! Deixa de ser mala, eu tô sem tempo.$B$BPera aí, tu tá dizendo o quê, guri? O Ioren te enviou pra me ajudar? E por que tu não falou logo?', 0);
