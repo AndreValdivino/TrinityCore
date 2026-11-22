@@ -1217,8 +1217,9 @@ struct npc_marshal_dughan : public ScriptedAI
 
 /*######
 ## npc_stormwind_infantry
-## Northshire: Stormwind Infantry keep fighting the Blackrock Worg spawned next to them.
-## Creature vs creature damage is capped so nobody dies; players and pets deal and take normal damage.
+## Northshire: Stormwind Infantry look like they fight the Blackrock Worg spawned next to them.
+## The fight is staged (facing + attack animations + slightly lowered health), there is no real combat,
+## so the worg keeps its original faction and flags. If a player attacks one of them, normal combat takes over.
 ## Idea adapted from AshamaneCore (GPL-2.0), using the existing worg spawns instead of summoning new ones.
 ######*/
 
@@ -1229,83 +1230,66 @@ enum StormwindInfantry
     SAY_INFANTRY_OUT_OF_COMBAT  = 0
 };
 
-static constexpr float INFANTRY_PAIR_RANGE      = 5.0f;  // max distance to the worg next to the infantry
-static constexpr float INFANTRY_MIN_HEALTH_PCT  = 80.0f; // infantry stops taking creature damage at this health
-static constexpr float WORG_MIN_HEALTH_PCT      = 70.0f; // infantry stops damaging creatures at this health
+static constexpr float INFANTRY_PAIR_RANGE          = 5.0f;  // max distance to the worg next to the infantry
+static constexpr int32 INFANTRY_FIGHT_HEALTH_PCT    = 80;    // health shown on the infantry during the staged fight
+static constexpr int32 WORG_FIGHT_HEALTH_PCT        = 70;    // health shown on the worg during the staged fight
 
 struct npc_stormwind_infantry : public ScriptedAI
 {
-    npc_stormwind_infantry(Creature* creature) : ScriptedAI(creature), _pairCheckTimer(0), _talkTimer(0) { }
+    npc_stormwind_infantry(Creature* creature) : ScriptedAI(creature), _fightTimer(0), _talkTimer(0) { }
 
     void Reset() override
     {
-        _pairCheckTimer = urand(1000, 3000);
+        me->SetReactState(REACT_DEFENSIVE); // never start fights on our own, the fight is staged
+        _fightTimer = urand(1000, 3000);
         _talkTimer = urand(15000, 20000);
-    }
-
-    void DamageTaken(Unit* attacker, uint32& damage, DamageEffectType /*damageType*/, SpellInfo const* /*spellInfo*/) override
-    {
-        if (!attacker || attacker->IsControlledByPlayer())
-            return;
-
-        uint64 minHealth = uint64(me->GetMaxHealth() * INFANTRY_MIN_HEALTH_PCT / 100.0f);
-        if (me->GetHealth() <= minHealth)
-            damage = 0;
-        else if (damage > me->GetHealth() - minHealth)
-            damage = uint32(me->GetHealth() - minHealth);
-    }
-
-    void DamageDealt(Unit* victim, uint32& damage, DamageEffectType /*damageType*/) override
-    {
-        if (!victim || victim->IsControlledByPlayer())
-            return;
-
-        uint64 minHealth = uint64(victim->GetMaxHealth() * WORG_MIN_HEALTH_PCT / 100.0f);
-        if (victim->GetHealth() <= minHealth)
-            damage = 0;
-        else if (damage > victim->GetHealth() - minHealth)
-            damage = uint32(victim->GetHealth() - minHealth);
     }
 
     void UpdateAI(uint32 diff) override
     {
-        // Same line the old SmartAI used: say something every 15-20s while out of combat
-        if (!me->IsInCombat())
+        // Real combat (a player or a pet attacked us): behave like a normal creature
+        if (me->IsInCombat())
         {
-            if (_talkTimer <= diff)
-            {
-                Talk(SAY_INFANTRY_OUT_OF_COMBAT);
-                _talkTimer = urand(15000, 20000);
-            }
-            else
-                _talkTimer -= diff;
+            UpdateVictim();
+            return;
         }
 
-        // Every few seconds, if idle, start fighting the free worg next to us
-        if (_pairCheckTimer <= diff)
+        // Same line the old SmartAI used: say something every 15-20s while out of combat
+        if (_talkTimer <= diff)
         {
-            _pairCheckTimer = urand(2000, 4000);
-
-            if (!me->GetVictim())
-            {
-                if (Creature* worg = me->FindNearestCreature(NPC_BLACKROCK_WORG, INFANTRY_PAIR_RANGE))
-                {
-                    if (!worg->GetVictim() && worg->AI())
-                    {
-                        AttackStart(worg);
-                        worg->AI()->AttackStart(me);
-                    }
-                }
-            }
+            Talk(SAY_INFANTRY_OUT_OF_COMBAT);
+            _talkTimer = urand(15000, 20000);
         }
         else
-            _pairCheckTimer -= diff;
+            _talkTimer -= diff;
 
-        UpdateVictim();
+        if (_fightTimer > diff)
+        {
+            _fightTimer -= diff;
+            return;
+        }
+
+        _fightTimer = urand(1500, 3000);
+
+        // Staged fight with the free worg next to us
+        Creature* worg = me->FindNearestCreature(NPC_BLACKROCK_WORG, INFANTRY_PAIR_RANGE);
+        if (!worg || !worg->IsAlive() || worg->IsInCombat())
+            return;
+
+        me->SetFacingToObject(worg);
+        worg->SetFacingToObject(me);
+        me->HandleEmoteCommand(EMOTE_ONESHOT_ATTACK1H);
+        worg->HandleEmoteCommand(EMOTE_ONESHOT_ATTACK_UNARMED);
+
+        // Keep both health bars a bit low, like in the original (out of combat regeneration would raise them)
+        if (me->GetHealthPct() > float(INFANTRY_FIGHT_HEALTH_PCT))
+            me->SetHealth(me->CountPctFromMaxHealth(INFANTRY_FIGHT_HEALTH_PCT));
+        if (worg->GetHealthPct() > float(WORG_FIGHT_HEALTH_PCT))
+            worg->SetHealth(worg->CountPctFromMaxHealth(WORG_FIGHT_HEALTH_PCT));
     }
 
 private:
-    uint32 _pairCheckTimer;
+    uint32 _fightTimer;
     uint32 _talkTimer;
 };
 
