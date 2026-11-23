@@ -12663,6 +12663,11 @@ uint32 Unit::GetCombatRatingDamageReduction(CombatRating cr, float rate, float c
     return CalculatePct(damage, percent);
 }
 
+// Defined in DB2Stores.cpp but not declared in DB2Stores.h
+extern DB2Storage<ChrCustomizationElementEntry> sChrCustomizationElementStore;
+extern DB2Storage<ChrCustomizationDisplayInfoEntry> sChrCustomizationDisplayInfoStore;
+extern DB2Storage<ChrCustomizationChoiceEntry> sChrCustomizationChoiceStore;
+
 uint32 Unit::GetModelForForm(ShapeshiftForm form, uint32 spellId) const
 {
     // Hardcoded cases
@@ -12751,6 +12756,38 @@ uint32 Unit::GetModelForForm(ShapeshiftForm form, uint32 spellId) const
             default:
                 break;
         }
+
+        // In newer client data the shapeshift form customization options are no longer attached to the race model.
+        // Find the form's options directly: use the choice stored on the player or, for characters without one
+        // (the client does not send form choices at creation), the first choice available to the player's race
+        // The customization data only has options for the swift flight form, which the plain flight form shares
+        ShapeshiftForm const dataForm = form == FORM_FLIGHT_FORM ? FORM_FLIGHT_FORM_EPIC : form;
+        ChrCustomizationDisplayInfoEntry const* defaultDisplayInfo = nullptr;
+        for (ChrCustomizationElementEntry const* element : sChrCustomizationElementStore)
+        {
+            ChrCustomizationDisplayInfoEntry const* displayInfo = sChrCustomizationDisplayInfoStore.LookupEntry(element->ChrCustomizationDisplayInfoID);
+            if (!displayInfo || !displayInfo->ShapeshiftFormID || ShapeshiftForm(displayInfo->ShapeshiftFormID) != dataForm)
+                continue;
+
+            ChrCustomizationChoiceEntry const* choice = sChrCustomizationChoiceStore.LookupEntry(element->ChrCustomizationChoiceID);
+            if (!choice)
+                continue;
+
+            uint32 playerChoice = player->GetCustomizationChoice(choice->ChrCustomizationOptionID);
+            if (playerChoice == choice->ID)
+                return displayInfo->DisplayID;
+
+            if (playerChoice || defaultDisplayInfo)
+                continue;
+
+            ChrCustomizationReqEntry const* choiceReq = sChrCustomizationReqStore.LookupEntry(choice->ChrCustomizationReqID);
+            if (!choiceReq || player->GetSession()->MeetsChrCustomizationReq(choiceReq, Races(GetRace()), Classes(GetClass()), false,
+                MakeChrCustomizationChoiceRange(player->m_playerData->Customizations)))
+                defaultDisplayInfo = displayInfo;
+        }
+
+        if (defaultDisplayInfo)
+            return defaultDisplayInfo->DisplayID;
     }
 
     SpellShapeshiftFormEntry const* formEntry = sSpellShapeshiftFormStore.LookupEntry(form);
