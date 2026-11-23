@@ -625,7 +625,30 @@ bool WorldSession::ValidateAppearance(Races race, Classes playerClass, Gender ge
 
         // option not found for race/gender combination
         if (customizationOptionDataItr == options->end())
-            return false;
+        {
+            // The options of the druid shapeshift forms belong to the form models and are not listed for the race.
+            // Accept them for druids as long as the choice exists for the option and meets its requirement
+            if (playerClass != CLASS_DRUID || !sChrCustomizationOptionStore.LookupEntry(playerChoice.ChrCustomizationOptionID))
+                return false;
+
+            std::vector<ChrCustomizationChoiceEntry const*> const* formChoices = sDB2Manager.GetCustomiztionChoices(playerChoice.ChrCustomizationOptionID);
+            if (!formChoices)
+                return false;
+
+            auto formChoiceItr = std::find_if(formChoices->begin(), formChoices->end(), [&](ChrCustomizationChoiceEntry const* choice)
+            {
+                return choice->ID == playerChoice.ChrCustomizationChoiceID;
+            });
+
+            if (formChoiceItr == formChoices->end())
+                return false;
+
+            if (ChrCustomizationReqEntry const* req = sChrCustomizationReqStore.LookupEntry((*formChoiceItr)->ChrCustomizationReqID))
+                if (!MeetsChrCustomizationReq(req, race, playerClass, true, customizations))
+                    return false;
+
+            continue;
+        }
 
         if (ChrCustomizationReqEntry const* req = sChrCustomizationReqStore.LookupEntry((*customizationOptionDataItr)->ChrCustomizationReqID))
             if (!MeetsChrCustomizationReq(req, race, playerClass, false, customizations))
@@ -1836,7 +1859,20 @@ void WorldSession::HandleAlterAppearance(WorldPackets::Character::AlterApperance
             return;
     }
 
-    if (!ValidateAppearance(Races(_player->GetRace()), Classes(_player->GetClass()), Gender(packet.NewSex), customizations))
+    // The client also sends a separate request for each alternate model it changed (the druid shapeshift forms).
+    // These carry only the options of that model, so they must not be checked against the race options
+    bool const isModelRequest = packet.CustomizedChrModelID != 0;
+    if (isModelRequest)
+    {
+        for (UF::ChrCustomizationChoice const& choice : customizations)
+        {
+            ChrCustomizationOptionEntry const* option = sChrCustomizationOptionStore.LookupEntry(choice.ChrCustomizationOptionID);
+            if (!option || uint32(option->ChrModelID) != packet.CustomizedChrModelID)
+                return;
+        }
+    }
+
+    if (!ValidateAppearance(Races(_player->GetRace()), Classes(_player->GetClass()), isModelRequest ? _player->GetNativeGender() : Gender(packet.NewSex), customizations))
         return;
 
     GameObject* go = _player->FindNearestGameObjectOfType(GAMEOBJECT_TYPE_BARBER_CHAIR, 5.0f);
@@ -1846,7 +1882,7 @@ void WorldSession::HandleAlterAppearance(WorldPackets::Character::AlterApperance
         return;
     }
 
-    if (_player->GetStandState() != UnitStandStateType(UNIT_STAND_STATE_SIT_LOW_CHAIR + go->GetGOInfo()->barberChair.chairheight))
+    if (!isModelRequest && _player->GetStandState() != UnitStandStateType(UNIT_STAND_STATE_SIT_LOW_CHAIR + go->GetGOInfo()->barberChair.chairheight))
     {
         SendPacket(WorldPackets::Character::BarberShopResult(WorldPackets::Character::BarberShopResult::ResultEnum::NotOnChair).Write());
         return;
@@ -1868,14 +1904,40 @@ void WorldSession::HandleAlterAppearance(WorldPackets::Character::AlterApperance
     _player->ModifyMoney(-cost);                     // it isn't free
     _player->UpdateCriteria(CriteriaType::MoneySpentAtBarberShop, cost);
 
-    if (_player->GetNativeGender() != packet.NewSex)
+    if (!isModelRequest && _player->GetNativeGender() != packet.NewSex)
     {
         _player->SetNativeGender(Gender(packet.NewSex));
         _player->InitDisplayIds();
         _player->RestoreDisplayId(false);
     }
 
-    _player->SetCustomizations(Trinity::Containers::MakeIteratorPair(packet.Customizations.begin(), packet.Customizations.end()));
+    // Keep the choices the request does not carry: a form request keeps everything else, a race request keeps the form options
+    std::vector<UF::ChrCustomizationChoice> newCustomizations(packet.Customizations.begin(), packet.Customizations.end());
+    std::vector<ChrCustomizationOptionEntry const*> const* raceOptions = sDB2Manager.GetCustomiztionOptions(_player->GetRace(), _player->GetNativeGender());
+    for (UF::ChrCustomizationChoice const& current : _player->m_playerData->Customizations)
+    {
+        bool const inRequest = std::any_of(newCustomizations.begin(), newCustomizations.end(), [&](UF::ChrCustomizationChoice const& choice)
+        {
+            return choice.ChrCustomizationOptionID == current.ChrCustomizationOptionID;
+        });
+        if (inRequest)
+            continue;
+
+        bool const isRaceOption = raceOptions && std::any_of(raceOptions->begin(), raceOptions->end(), [&](ChrCustomizationOptionEntry const* option)
+        {
+            return option->ID == current.ChrCustomizationOptionID;
+        });
+
+        if (isModelRequest || !isRaceOption)
+            newCustomizations.push_back(current);
+    }
+
+    std::sort(newCustomizations.begin(), newCustomizations.end(), [](UF::ChrCustomizationChoice const& left, UF::ChrCustomizationChoice const& right)
+    {
+        return left.ChrCustomizationOptionID < right.ChrCustomizationOptionID;
+    });
+
+    _player->SetCustomizations(Trinity::Containers::MakeIteratorPair(newCustomizations.begin(), newCustomizations.end()));
 
     _player->UpdateCriteria(CriteriaType::GotHaircut, 1);
 
