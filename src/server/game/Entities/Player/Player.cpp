@@ -17928,6 +17928,11 @@ bool Player::IsLoading() const
     return GetSession()->PlayerLoading();
 }
 
+// Defined in DB2Stores.cpp but not declared in DB2Stores.h
+extern DB2Storage<ChrCustomizationElementEntry> sChrCustomizationElementStore;
+extern DB2Storage<ChrCustomizationDisplayInfoEntry> sChrCustomizationDisplayInfoStore;
+extern DB2Storage<ChrCustomizationChoiceEntry> sChrCustomizationChoiceStore;
+
 bool Player::LoadFromDB(ObjectGuid guid, CharacterDatabaseQueryHolder const& holder)
 {
     PreparedQueryResult result = holder.GetPreparedResult(PLAYER_LOGIN_QUERY_LOAD_FROM);
@@ -18232,6 +18237,39 @@ bool Player::LoadFromDB(ObjectGuid guid, CharacterDatabaseQueryHolder const& hol
     {
         TC_LOG_ERROR("entities.player.loading", "Player::LoadFromDB: Player ({}) has wrong Appearance values (Hair/Skin/Color), can't load.", guid.ToString());
         return false;
+    }
+
+    // The client does not send the druid shapeshift form options at character creation, so complete them with the
+    // first choice available to the character. The barber shop preview needs a stored choice to show the form model
+    if (GetClass() == CLASS_DRUID)
+    {
+        std::vector<UF::ChrCustomizationChoice> completed = customizations;
+        for (ChrCustomizationElementEntry const* element : sChrCustomizationElementStore)
+        {
+            ChrCustomizationDisplayInfoEntry const* displayInfo = sChrCustomizationDisplayInfoStore.LookupEntry(element->ChrCustomizationDisplayInfoID);
+            if (!displayInfo || !displayInfo->ShapeshiftFormID)
+                continue;
+
+            ChrCustomizationChoiceEntry const* choice = sChrCustomizationChoiceStore.LookupEntry(element->ChrCustomizationChoiceID);
+            if (!choice)
+                continue;
+
+            if (std::ranges::any_of(completed, [&](UF::ChrCustomizationChoice const& existing)
+                { return existing.ChrCustomizationOptionID == choice->ChrCustomizationOptionID; }))
+                continue;
+
+            ChrCustomizationReqEntry const* choiceReq = sChrCustomizationReqStore.LookupEntry(choice->ChrCustomizationReqID);
+            if (choiceReq && !GetSession()->MeetsChrCustomizationReq(choiceReq, Races(GetRace()), Classes(GetClass()), false,
+                MakeChrCustomizationChoiceRange(customizations)))
+                continue;
+
+            UF::ChrCustomizationChoice& added = completed.emplace_back();
+            added.ChrCustomizationOptionID = choice->ChrCustomizationOptionID;
+            added.ChrCustomizationChoiceID = choice->ID;
+        }
+
+        if (completed.size() != customizations.size())
+            SetCustomizations(Trinity::Containers::MakeIteratorPair(completed.begin(), completed.end()), false);
     }
 
     // set which actionbars the client has active - DO NOT REMOVE EVER AGAIN (can be changed though, if it does change fieldwise)
