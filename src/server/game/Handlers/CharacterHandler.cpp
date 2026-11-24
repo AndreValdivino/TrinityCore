@@ -564,10 +564,9 @@ bool WorldSession::MeetsChrCustomizationReq(ChrCustomizationReqEntry const* req,
 
     if (req->QuestID)
     {
-        if (!_player)
-            return false;
-
-        if (!_player->IsQuestRewarded(req->QuestID))
+        // While a character is loading the rewarded quests are not loaded yet,
+        // so the requirement cannot be evaluated and is assumed to be met
+        if (_player && !_player->IsQuestRewarded(req->QuestID))
             return false;
     }
 
