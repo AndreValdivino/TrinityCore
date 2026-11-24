@@ -19834,6 +19834,25 @@ void Player::_LoadQuestStatusRewarded(PreparedQueryResult result)
         }
         while (result->NextRow());
     }
+
+    // Druids always have the hidden quests that unlock the Legion form customization options
+    if (GetClass() == CLASS_DRUID)
+    {
+        static constexpr uint32 DruidFormUnlockQuests[] =
+        {
+            78448, 78479, 78481, 78503, 78507, 78511, 78512, 78513, 78514, 78515, 78516,
+            78517, 78518, 78519, 78520, 78521, 78522, 78523, 78524, 78527, 78528, 92638
+        };
+
+        for (uint32 questId : DruidFormUnlockQuests)
+        {
+            if (!sObjectMgr->GetQuestTemplate(questId) || IsQuestRewarded(questId))
+                continue;
+
+            m_RewardedQuests.insert(questId);
+            SetQuestCompletedBit(questId, true);
+        }
+    }
 }
 
 void Player::_LoadDailyQuestStatus(PreparedQueryResult result)
