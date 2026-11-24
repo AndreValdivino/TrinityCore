@@ -747,6 +747,26 @@ bool CollectionMgr::CanAddAppearance(ItemModifiedAppearanceEntry const* itemModi
     return true;
 }
 
+void CollectionMgr::AddCustomizationAppearance(Player* owner, uint32 itemModifiedAppearanceId)
+{
+    // Adds an appearance that only unlocks character customization options (druid forms).
+    // It bypasses CanAddAppearance because these appearances belong to items that cannot be transmogrified.
+    if (!sItemModifiedAppearanceStore.LookupEntry(itemModifiedAppearanceId) || HasItemAppearance(itemModifiedAppearanceId).first)
+        return;
+
+    if (_appearances->size() <= itemModifiedAppearanceId)
+    {
+        std::size_t numBlocks = _appearances->num_blocks();
+        _appearances->resize(itemModifiedAppearanceId + 1);
+        numBlocks = _appearances->num_blocks() - numBlocks;
+        while (numBlocks--)
+            owner->AddTransmogBlock(0);
+    }
+
+    _appearances->set(itemModifiedAppearanceId);
+    owner->AddTransmogFlag(itemModifiedAppearanceId / 32, 1 << (itemModifiedAppearanceId % 32));
+}
+
 void CollectionMgr::AddItemAppearance(ItemModifiedAppearanceEntry const* itemModifiedAppearance)
 {
     Player* owner = _owner->GetPlayer();
