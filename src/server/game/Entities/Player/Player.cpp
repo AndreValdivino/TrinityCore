@@ -19814,6 +19814,19 @@ void Player::_LoadQuestStatusRewarded(PreparedQueryResult result)
             m_RewardedQuests.insert(questId);
             SetQuestCompletedBit(questId, true);
         }
+
+        // Appearances required by the cat and bear form customization options
+        static constexpr uint32 DruidFormAppearances[] =
+        {
+            76335, 76336, 76337, 76338, 76524, 77022, 77023, 77024,
+            96450, 96451, 96452, 96453, 96454, 96455, 96456, 96457, 96458, 96459, 96460, 96461,
+            96462, 96463, 96464, 96465, 96466, 96467, 96468, 96469, 96470, 96471, 96472, 96473,
+            96474, 96475, 96476, 96477, 96478, 96479, 96480, 96481, 96482, 96483, 96484, 96485,
+            96486, 96487, 96488, 96489
+        };
+
+        for (uint32 appearanceId : DruidFormAppearances)
+            GetSession()->GetCollectionMgr()->AddCustomizationAppearance(this, appearanceId);
     }
 }
 
